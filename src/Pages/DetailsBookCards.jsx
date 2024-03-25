@@ -1,10 +1,61 @@
-import { useLoaderData, useParams } from "react-router-dom";
-import { CiStar } from "react-icons/ci";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export default function DetailsBookCards() {
-  const allBooks = useLoaderData();
   const { bookId } = useParams();
-  const book = allBooks.find((bookItem) => bookItem.bookId == bookId);
+  const [book, setBook] = useState(null);
+  const [bookAddedToRead, setBookAddedToRead] = useState(false);
+  const [bookAddedToWishlist, setBookAddedToWishlist] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/data.json");
+        const data = await response.json();
+        const foundBook = data.find(
+          (bookItem) => bookItem.bookId === parseInt(bookId)
+        );
+        setBook(foundBook);
+      } catch (error) {
+        console.error("Error fetching book details:", error);
+      }
+    };
+    fetchData();
+  }, [bookId]);
+
+  const handleRead = () => {
+    if (!bookAddedToRead) {
+      addToLocalStorage("read", book);
+      setBookAddedToRead(true);
+      alert("Read book added to the ls successfully!");
+    } else {
+      alert("book already added to the Ls!");
+    }
+  };
+
+  const handleWishlist = () => {
+    if (!bookAddedToWishlist) {
+      if (!bookAddedToRead) {
+        addToLocalStorage("wishlist", book);
+        setBookAddedToWishlist(true);
+        alert(" wishlist added to the ls successfully!");
+      } else {
+        alert("book already added to the Read! Cannot add to Wishlist.");
+      }
+    } else {
+      alert("Book already added to Wishlist!");
+    }
+  };
+
+  const addToLocalStorage = (key, book) => {
+    const items = JSON.parse(localStorage.getItem(key)) || [];
+    items.push(book);
+    localStorage.setItem(key, JSON.stringify(items));
+  };
+
+  if (!book) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -17,15 +68,14 @@ export default function DetailsBookCards() {
           <h3>By: {book?.author}</h3>
           <h4 className="border-y py-3">{book?.category}</h4>
           <p className=" mt-3">
-            {" "}
             <span className="font-semibold">Review:</span> {book?.review}
           </p>
           <div className="space-x-3 mt-2">
             <span className="font-semibold">Tags</span>
-            <div className="badge badge-outline   text-[#23BE0A]">
+            <div className="badge badge-outline bg-gray-100   text-[#23BE0A]">
               #{book.tags[0]}
             </div>
-            <div className="badge badge-outline text-[#23BE0A]  ">
+            <div className="badge badge-outline bg-gray-100 text-[#23BE0A]  ">
               #{book.tags[1]}
             </div>
           </div>
@@ -48,8 +98,15 @@ export default function DetailsBookCards() {
             </h4>
           </div>
           <div className="card-actions">
-            <button className="btn btn-outline px-8">Read</button>
-            <button className="btn bg-[#59C6D2] px-8 text-white font-semibold">Wishlist</button>
+            <button onClick={handleRead} className="btn btn-outline px-8">
+              Read
+            </button>
+            <button
+              onClick={handleWishlist}
+              className="btn bg-[#59C6D2] px-8 text-white font-semibold"
+            >
+              Wishlist
+            </button>
           </div>
         </div>
       </div>

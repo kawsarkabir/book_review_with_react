@@ -22,7 +22,9 @@ const BooksCard = () => {
                   <figure className="px-10 pt-10">
                     <img src={book.image} alt="Shoes" className="rounded-xl" />
                   </figure>
-                  <div className="flex gap-10 ml-2 mt-4">
+                  
+                  <div className="card-body">
+                  <div className="flex gap-x-3">
                     <button className="bg-gray-100 font-semibold text-lg text-[#23BE0A] px-4 rounded-full">
                       {book.tags[0]}
                     </button>
@@ -30,8 +32,7 @@ const BooksCard = () => {
                       {book.tags[1]}
                     </button>
                   </div>
-                  <div className="card-body">
-                    <h2 className="card-title">{book.bookName}</h2>
+                    <h2 className="card-title my-2">{book.bookName}</h2>
                     <p className="work-sans opacity-70 font-medium">
                       By: {book.author}
                     </p>
