@@ -1,0 +1,80 @@
+[
+  {
+    "bookId": 1,
+    "bookName": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "image": "https://i.ibb.co/Z1jkgN3/ahmed-almakhzanji-kshk-B1i5-5o-unsplash.jpg",
+    "review": "The Great Gatsby is a timeless classic that delves deep into the lives of the affluent during the Jazz Age. Fitzgerald's prose paints a vivid picture of the opulence and decadence of the era, while also exploring themes of love, ambition, and the elusive American Dream. Through the enigmatic Jay Gatsby and the narrator Nick Carraway, Fitzgerald crafts a poignant tale of longing and disillusionment that resonates with readers even today.",
+    "totalPages": 180,
+    "rating": 4.5,
+    "category": "Fiction",
+    "tags": ["Romance", "Drama"],
+    "publisher": "Scribner",
+    "yearOfPublishing": 1925
+  },
+  {
+    "bookId": 2,
+    "bookName": "The Hate You Give",
+    "author": "George Orwell",
+    "image": "https://i.ibb.co/g78gPpx/thought-catalog-qk-CTQFXid-V8-unsplash.jpg",
+    "review": "George Orwell's 1984 is a chilling dystopian novel that remains disturbingly relevant in today's world. Set in a totalitarian regime where freedom of thought is suppressed, Orwell's depiction of surveillance, propaganda, and thought control is both haunting and thought-provoking. Through the protagonist Winston Smith, Orwell warns of the dangers of unchecked government power and the erosion of individual liberties. A must-read for anyone concerned with the preservation of democracy and freedom.",
+    "totalPages": 328,
+    "rating": 4.7,
+    "category": "Science Fiction",
+    "tags": ["Dystopian", "Political"],
+    "publisher": "Secker & Warburg",
+    "yearOfPublishing": 1949
+  },
+  {
+    "bookId": 3,
+    "bookName": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "image": "https://i.ibb.co/GvKLY16/elena-kloppenburg-B6-FOu-NAYp-YI-unsplash.jpg",
+    "review": "Harper Lee's To Kill a Mockingbird is a poignant exploration of racial injustice and moral growth in the American South. Through the innocent eyes of Scout Finch, Lee exposes the deep-seated prejudices and social inequalities that plague Maycomb County. The character of Atticus Finch serves as a moral compass, advocating for empathy and justice in the face of bigotry and ignorance. With its timeless themes of compassion and courage, To Kill a Mockingbird remains a powerful and relevant read for readers of all ages.",
+    "totalPages": 281,
+    "rating": 4.8,
+    "category": "Classics",
+    "tags": ["Social Issues", "Legal Drama"],
+    "publisher": "J. B. Lippincott & Co.",
+    "yearOfPublishing": 1960
+  },
+  {
+    "bookId": 4,
+    "bookName": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "image": "https://i.ibb.co/wpcKN7p/kenny-eliason-HXjt-Pt-XRAQ-unsplash.jpg",
+    "review": "Jane Austen's Pride and Prejudice is a delightful comedy of manners that continues to captivate readers with its wit and charm. Set in the early 19th century English countryside, the novel follows the spirited Elizabeth Bennet as she navigates the complexities of love and social status. Through sharp dialogue and memorable characters, Austen skillfully explores themes of marriage, class, and the pursuit of happiness. With its timeless appeal and enduring popularity, Pride and Prejudice remains a beloved classic of English literature.",
+    "totalPages": 432,
+    "rating": 4.6,
+    "category": "Romance",
+    "tags": ["Satire", "Regency Era"],
+    "publisher": "T. Egerton, Whitehall",
+    "yearOfPublishing": 1813
+  },
+  {
+    "bookId": 5,
+    "bookName": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "image": "https://i.ibb.co/qFYLdL0/jon-tyson-i-As-Ny36b6-Ec-unsplash.jpg",
+    "review": "J.D. Salinger's The Catcher in the Rye is a seminal coming-of-age novel that captures the disillusionment and alienation of adolescence. Narrated by the rebellious teenager Holden Caulfield, the novel follows his journey through New York City as he grapples with the phoniness of the adult world. Salinger's portrayal of teenage angst and rebellion struck a chord with readers upon its release and continues to resonate with each new generation. With its raw honesty and authentic voice, The Catcher in the Rye remains a timeless classic of adolescent literature.",
+    "totalPages": 224,
+    "rating": 4.4,
+    "category": "Coming-of-Age",
+    "tags": ["Identity", "Existentialism"],
+    "publisher": "Little, Brown and Company",
+    "yearOfPublishing": 1951
+  },
+  {
+    "bookId": 6,
+    "bookName": "The Lord of the Rings",
+    "author": "J.R.R. Tolkien",
+    "image": "https://i.ibb.co/phJXHYQ/content-pixie-z-UMFogk-ZWNE-unsplash.jpg",
+    "review": "J.R.R. Tolkien's The Lord of the Rings is a monumental work of high fantasy that has enchanted readers for generations. Set in the fictional world of Middle-earth, the epic tale follows the quest to destroy the One Ring and defeat the dark lord Sauron. Through richly detailed landscapes and a diverse cast of characters, Tolkien weaves a story of friendship, heroism, and the battle between good and evil. With its immersive world-building and timeless themes, The Lord of the Rings continues to inspire readers and filmmakers alike.",
+    "totalPages": 1178,
+    "rating": 4.9,
+    "category": "Fantasy",
+    "tags": ["Adventure", "Epic"],
+    "publisher": "Allen & Unwin",
+    "yearOfPublishing": 1954
+  }
+]
