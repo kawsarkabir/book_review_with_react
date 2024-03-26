@@ -90,7 +90,7 @@ export default function DetailsBookCards() {
               <span className="font-semibold">{book?.publisher}</span>
             </h4>
             <h4>
-              Year of Publishing:{" "}
+              Year of Publishing:
               <span className="font-semibold">{book?.yearOfPublishing}</span>
             </h4>
             <h4>

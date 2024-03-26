@@ -30,27 +30,39 @@ const Nav = () => {
             <NavLink
               to="/"
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "border border-[#23BE0A]" : ""
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "border border-[#23BE0A]"
+                  : ""
               }
             >
               Home
             </NavLink>
           </li>
           <li>
-          <NavLink
+            <NavLink
               to="/listedbooks"
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "border border-[#23BE0A]" : ""
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "border border-[#23BE0A]"
+                  : ""
               }
             >
               Listed Books
             </NavLink>
           </li>
           <li>
-          <NavLink
+            <NavLink
               to="/pagetoread"
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "border border-[#23BE0A]" : ""
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "border border-[#23BE0A]"
+                  : ""
               }
             >
               Pages To Read
@@ -59,8 +71,8 @@ const Nav = () => {
         </ul>
       </div>
       <div className="navbar-end gap-3">
-        <a className="btn bg-[#23BE0A] text-white text-xl">Sign in</a>
-        <a className="btn bg-[#59C6D2] text-white text-xl">Sign up</a>
+        <a className="btn bg-[#23BE0A] text-white px-6 font-bold">Sign in</a>
+        <a className="btn bg-[#59C6D2] text-white px-6 font-bold">Sign up</a>
       </div>
     </div>
   );

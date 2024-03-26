@@ -17,7 +17,7 @@ const BooksCard = () => {
         {data.map((book, idx) => {
           return (
             <div key={idx}>
-              <Link to={`/detailsBookCards/${book.bookId}`}>
+              <Link to={`detailsBookCards/${book.bookId}`}>
                 <div className="card bg-base-100 shadow-xl">
                   <figure className="px-10 pt-10">
                     <img src={book.image} alt="Shoes" className="rounded-xl" />
