@@ -82,11 +82,11 @@ export default function DetailsBookCards() {
           <div className="divider"></div>
           <div className="space-y-3">
             <h4>
-              Number of Pages:{" "}
+              Number of Pages:
               <span className="font-semibold">{book?.totalPages}</span>{" "}
             </h4>
             <h4>
-              Publisher:{" "}
+              Publisher:
               <span className="font-semibold">{book?.publisher}</span>
             </h4>
             <h4>

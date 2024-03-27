@@ -1,10 +1,34 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function ListedBooks() {
+  const [sortOption, setSortOption] = useState(null);
   const readItems = JSON.parse(localStorage.getItem("read"));
-  console.log(readItems);
   const wishlistItems = JSON.parse(localStorage.getItem("wishlist"));
-  console.log(wishlistItems);
+
+  const handleSort = (option) => {
+    setSortOption(option);
+  };
+
+  const sortedReadItems = () => {
+    if (sortOption === "Rating") {
+      return readItems.slice().sort((a, b) => b.rating - a.rating);
+    } else if (sortOption === "Number of pages") {
+      return readItems.slice().sort((a, b) => b.totalPages - a.totalPages);
+    } else if (sortOption === "Published year") {
+      return readItems.slice().sort(
+        (a, b) => b.yearOfPublishing - a.yearOfPublishing
+      );
+    }
+    return readItems;
+  };
+
+  const sortedWishlistItems = () => {
+    if (sortOption === "Rating") {
+      return wishlistItems.slice().sort((a, b) => b.rating - a.rating);
+    }
+    return wishlistItems;
+  };
 
   return (
     <>
@@ -25,19 +49,22 @@ export default function ListedBooks() {
             className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Rating</a>
+              <a onClick={() => handleSort("Rating")}>Rating</a>
             </li>
             <li>
-              <a> Number of pages</a>
+              <a onClick={() => handleSort("Number of pages")}>
+                Number of pages
+              </a>
             </li>
             <li>
-              <a>Published year</a>
+              <a onClick={() => handleSort("Published year")}>Published year</a>
             </li>
           </ul>
         </div>
       </div>
-      {/* tab list here */}
+
       <div role="tablist" className="tabs tabs-lifted mb-20">
+        {/* Read tab */}
         <input
           type="radio"
           name="my_tabs_2"
@@ -50,7 +77,8 @@ export default function ListedBooks() {
           role="tabpanel"
           className="tab-content bg-base-100 border-base-300 p-6"
         >
-          {readItems?.map((item) => (
+          {/* Display sorted readItems */}
+          {sortedReadItems().map((item) => (
             <div
               key={item?.bookId}
               className="card card-side border rounded-lg my-6 px-5"
@@ -59,7 +87,7 @@ export default function ListedBooks() {
                 <img
                   src={item?.image}
                   className="w-52 rounded-xl h-52"
-                  alt="Movie"
+                  alt="Book"
                 />
               </figure>
               <div className="card-body work-sans">
@@ -67,30 +95,27 @@ export default function ListedBooks() {
                 <p>By: {item.author}</p>
                 <div className="space-x-3 mt-2 flex items-center">
                   <span className="font-semibold">Tags</span>
-                  <div className="badge   bg-gray-100   text-[#23BE0A]">
+                  <div className="badge bg-gray-100 text-[#23BE0A]">
                     #{item.tags[0]}
                   </div>
-                  <div className="badge   bg-gray-100 text-[#23BE0A]  ">
+                  <div className="badge bg-gray-100 text-[#23BE0A]">
                     #{item.tags[1]}
                   </div>
-                  <div>
-                    Year of Publishing:
-                    {item.yearOfPublishing}
-                  </div>
+                  <div>Year of Publishing: {item.yearOfPublishing}</div>
                 </div>
                 <div className="flex items-center gap-x-4 border-b pb-2">
                   <h4>Publisher: {item?.publisher}</h4>
                   <h4>Pages: {item?.totalPages}</h4>
                 </div>
                 <div className="flex items-center gap-x-3">
-                  <span className="badge bg-gray-200 text-[#1518f3] opacity-80 mt-2 py-4 px-4">
+                  <span className="badge bg-gray-200 text-[#1518f3]">
                     Category: {item.category}
                   </span>
-                  <span className="badge bg-gray-200 text-[#1518f3] opacity-80 mt-2 py-4 px-4">
+                  <span className="badge bg-gray-200 text-[#1518f3]">
                     Rating: {item.rating}
                   </span>
                   <Link to={`/detailsBookCards/${item.bookId}`}>
-                    <span className="badge bg-[#23BE0A] text-white opacity-80 mt-2 py-4 px-4">
+                    <span className="badge bg-[#23BE0A] text-white">
                       View Details
                     </span>
                   </Link>
@@ -100,6 +125,7 @@ export default function ListedBooks() {
           ))}
         </div>
 
+        {/* Wishlist tab */}
         <input
           type="radio"
           name="my_tabs_2"
@@ -111,7 +137,8 @@ export default function ListedBooks() {
           role="tabpanel"
           className="tab-content bg-base-100 border-base-300 rounded-box p-6"
         >
-          {wishlistItems?.map((item) => (
+          {/* Display sorted wishlistItems */}
+          {sortedWishlistItems().map((item) => (
             <div
               key={item?.bookId}
               className="card card-side border rounded-lg my-6 px-5"
@@ -120,7 +147,7 @@ export default function ListedBooks() {
                 <img
                   src={item?.image}
                   className="w-52 rounded-xl h-52"
-                  alt="Movie"
+                  alt="Book"
                 />
               </figure>
               <div className="card-body work-sans">
@@ -128,30 +155,27 @@ export default function ListedBooks() {
                 <p>By: {item.author}</p>
                 <div className="space-x-3 mt-2 flex items-center">
                   <span className="font-semibold">Tags</span>
-                  <div className="badge   bg-gray-100   text-[#23BE0A]">
+                  <div className="badge bg-gray-100 text-[#23BE0A]">
                     #{item.tags[0]}
                   </div>
-                  <div className="badge   bg-gray-100 text-[#23BE0A]  ">
+                  <div className="badge bg-gray-100 text-[#23BE0A]">
                     #{item.tags[1]}
                   </div>
-                  <div>
-                    Year of Publishing:
-                    {item.yearOfPublishing}
-                  </div>
+                  <div>Year of Publishing: {item.yearOfPublishing}</div>
                 </div>
                 <div className="flex items-center gap-x-4 border-b pb-2">
                   <h4>Publisher: {item?.publisher}</h4>
                   <h4>Pages: {item?.totalPages}</h4>
                 </div>
                 <div className="flex items-center gap-x-3">
-                  <span className="badge bg-gray-200 text-[#1518f3] opacity-80 mt-2 py-4 px-4">
+                  <span className="badge bg-gray-200 text-[#1518f3]">
                     Category: {item.category}
                   </span>
-                  <span className="badge bg-gray-200 text-[#1518f3] opacity-80 mt-2 py-4 px-4">
+                  <span className="badge bg-gray-200 text-[#1518f3]">
                     Rating: {item.rating}
                   </span>
                   <Link to={`/detailsBookCards/${item.bookId}`}>
-                    <span className="badge bg-[#23BE0A] text-white opacity-80 mt-2 py-4 px-4">
+                    <span className="badge bg-[#23BE0A] text-white">
                       View Details
                     </span>
                   </Link>
